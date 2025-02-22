@@ -45,6 +45,21 @@ body {
     color: #ffd700;
 }
 
+.app-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    background: linear-gradient(90deg, #ff0000, #cc0000);
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
+}
+
+
 /* Search Bar */
 .search-bar input {
     padding: 12px;
