@@ -45,14 +45,6 @@ studyMusicButton.addEventListener('click', () => {
     fetchVideos(searchInput.value); // Fetch new results
 });
 
-// Trigger search on Enter key
-searchInput.addEventListener('keypress', (event) => {
-    if (event.key === 'Enter') {
-        console.log("Searching for:", searchInput.value);
-        fetchVideos(searchInput.value);
-    }
-});
-
 // Fetch YouTube Videos
 function fetchVideos(query) {
     if (!query) return;
