@@ -95,7 +95,7 @@ function playVideo(videoId) {
     }
 }
 
-// ✅ Fetch Current Time and Display Karaoke Curfew
+// Fetch Current Time and Display Karaoke Curfew
 function fetchTime() {
     const apiUrl = "https://timeapi.io/api/Time/current/zone?timeZone=Asia/Manila"; // New API
 
