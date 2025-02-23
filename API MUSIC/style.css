@@ -172,3 +172,189 @@ button {
 #search-results button:hover {
     background: linear-gradient(45deg, #0056b3, #0084ff);
 }
+
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: white;
+}
+
+/* Music Player Container */
+.music-video-player {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 85%;
+    max-width: 700px;
+    transition: transform 0.3s ease;
+}
+
+.music-video-player:hover {
+    transform: scale(1.02);
+}
+
+/* Video Player */
+#player {
+    width: 100%;
+    height: 390px;
+    background: black;
+    border-radius: 10px;
+}
+
+/* Track Info */
+.track-info {
+    margin: 15px 0;
+    font-size: 22px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #ffd700;
+}
+
+/* App Title - YouTube Style */
+.app-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 32px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: white;
+    background: linear-gradient(90deg, #ff0000, #cc0000);
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5);
+}
+
+
+
+/* Search Bar */
+.search-bar input {
+    padding: 12px;
+    width: 85%;
+    border-radius: 8px;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+.search-bar input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.search-bar input:focus {
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+
+/* Control Buttons */
+.controls {
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+button {
+    padding: 14px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+#karaoke-button {
+    background: linear-gradient(45deg, #ff6b6b, #ff4081);
+    color: white;
+    box-shadow: 0 4px 10px rgba(255, 105, 180, 0.5);
+}
+
+#karaoke-button:hover {
+    background: linear-gradient(45deg, #e91e63, #c2185b);
+    transform: scale(1.05);
+}
+
+#study-music-button {
+    background: linear-gradient(45deg, #4caf50, #66bb6a);
+    color: white;
+    box-shadow: 0 4px 10px rgba(76, 175, 80, 0.5);
+}
+
+#study-music-button:hover {
+    background: linear-gradient(45deg, #388e3c, #2e7d32);
+    transform: scale(1.05);
+}
+
+/* Search Results */
+#search-results {
+    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+#search-results div {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 12px;
+    border-radius: 8px;
+    text-align: center;
+    width: 220px;
+    transition: transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#search-results div:hover {
+    transform: scale(1.05);
+}
+
+#search-results h3 {
+    font-size: 14px;
+    color: #ffd700;
+}
+
+#search-results button {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(45deg, #007bff, #00c6ff);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#search-results button:hover {
+    background: linear-gradient(45deg, #0056b3, #0084ff);
+}
+
+/* Time Display */
+#time-display {
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffd700; 
+    margin-top: 10px;
+    text-align: center;
+}
