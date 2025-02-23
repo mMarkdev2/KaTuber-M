@@ -95,25 +95,25 @@ function playVideo(videoId) {
     }
 }
 
-// Fetch Current Time and Display Karaoke Curfew
-function fetchTime() {
-    const apiUrl = "https://timeapi.io/api/Time/current/zone?timeZone=Asia/Manila"; // New API
+// Function to update the time every second
+function updateClock(initialDateTime) {
+    let currentTime = new Date(initialDateTime); // Convert API datetime to JS Date object
 
-    fetch(apiUrl)
-        .then(response => {
-            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-            return response.json();
-        })
-        .then(data => {
-            const formattedTime = data.time; // Directly get the time string
-            document.getElementById("time-display").textContent = 
-                `Current Time: ${formattedTime} | Karaoke Curfew: 10PM`;
-        })
-        .catch(error => {
-            console.error("Error fetching time:", error);
-            document.getElementById("time-display").textContent = "Failed to load time. Retrying...";
-            setTimeout(fetchTime, 5000); // Retry after 5 seconds
-        });
+    function tick() {
+        currentTime.setSeconds(currentTime.getSeconds() + 1); // Add 1 second
+        const formattedTime = currentTime.toLocaleTimeString("en-PH", { 
+            hour: "2-digit", 
+            minute: "2-digit", 
+            second: "2-digit",
+            hour12: true 
+        }); 
+
+        document.getElementById("time-display").textContent = 
+            `PH Time: ${formattedTime} | Karaoke Curfew: 10PM`;
+    }
+
+    tick(); // Run immediately
+    setInterval(tick, 1000); // Update every second
 }
 
 // Run the function on page load
