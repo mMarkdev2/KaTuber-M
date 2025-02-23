@@ -6,6 +6,7 @@ const searchInput = document.getElementById('search-input');
 const searchResults = document.getElementById('search-results');
 const karaokeButton = document.getElementById('karaoke-button');
 const studyMusicButton = document.getElementById('study-music-button');
+const timeDisplay = document.getElementById('time-display'); // 📌 Time display
 let player;
 let searchMode = 'karaoke'; // Default mode
 
@@ -35,14 +36,14 @@ karaokeButton.addEventListener('click', () => {
     searchMode = 'karaoke';
     searchInput.placeholder = "Search for karaoke songs...";
     console.log("Mode: Karaoke");
-    fetchVideos(searchInput.value); // Fetch new results
+    fetchVideos(searchInput.value);
 });
 
 studyMusicButton.addEventListener('click', () => {
     searchMode = 'study';
     searchInput.placeholder = "Search for music tutorials...";
     console.log("Mode: Study Music");
-    fetchVideos(searchInput.value); // Fetch new results
+    fetchVideos(searchInput.value);
 });
 
 // Fetch YouTube Videos
@@ -51,9 +52,9 @@ function fetchVideos(query) {
     
     let searchQuery = query;
     if (searchMode === 'karaoke') {
-        searchQuery += " karaoke lyrics";  // Filters for karaoke
+        searchQuery += " karaoke lyrics";  
     } else if (searchMode === 'study') {
-        searchQuery += " guitar tutorial OR piano tutorial OR how to play";  // Filters for tutorials
+        searchQuery += " guitar tutorial OR piano tutorial OR how to play";  
     }
 
     const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(searchQuery)}&key=${API_KEY}&type=video&videoEmbeddable=true`;
@@ -93,3 +94,27 @@ function playVideo(videoId) {
         alert('Video unavailable.');
     }
 }
+
+// ✅ Fetch Current Time and Display Karaoke Curfew
+function fetchTime() {
+    const apiUrl = "https://timeapi.io/api/Time/current/zone?timeZone=Asia/Manila"; // New API
+
+    fetch(apiUrl)
+        .then(response => {
+            if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+            return response.json();
+        })
+        .then(data => {
+            const formattedTime = data.time; // Directly get the time string
+            document.getElementById("time-display").textContent = 
+                `Current Time: ${formattedTime} | Karaoke Curfew: 10PM`;
+        })
+        .catch(error => {
+            console.error("Error fetching time:", error);
+            document.getElementById("time-display").textContent = "Failed to load time. Retrying...";
+            setTimeout(fetchTime, 5000); // Retry after 5 seconds
+        });
+}
+
+// Run the function on page load
+window.onload = fetchTime;
